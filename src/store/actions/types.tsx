@@ -1,7 +1,7 @@
 import React from 'react';
 
-function TodoItem() {
+function types() {
   return <div></div>;
 }
 
-export default TodoItem;
+export default types;
