@@ -1,9 +1,11 @@
-import TodoItem from 'components/todo/TodoItem';
+import TodoInput from 'components/input/TodoInput';
+import TodoContainer from 'components/todo/TodoContainer';
 
 function App() {
   return (
     <div className="App">
-      <TodoItem />
+      <TodoInput />
+      <TodoContainer />
     </div>
   );
 }

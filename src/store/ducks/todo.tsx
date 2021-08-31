@@ -2,14 +2,12 @@ export const ADD_TODO = 'todo/add_todo' as const;
 export const REMOVE_TODO = 'todo/remove_todo' as const;
 export const TOGGLE_TODO = 'todo/toggle_todo' as const;
 
-let todoId: 0;
-
-export const addTodo = (todo: string) => ({
+export const addTodo = (todo: string, count: number) => ({
   type: ADD_TODO,
   todo: {
     todo: todo,
     isToggle: false,
-    id: todoId++
+    id: count
   }
 });
 
