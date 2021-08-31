@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import store, { RootState } from 'store';
-import { Itodo, removeTodo } from 'store/ducks/todo';
+import { Itodo } from 'store/ducks/todo';
 import styled from 'styled-components';
 
 const TodoItemDiv = styled.div`
@@ -36,23 +33,23 @@ const ConetentsDiv = styled.div`
 
 type propsData = {
   todoItem: Itodo;
+  removeTodo(): void;
+  toggleTodo(): void;
 };
 
-function TodoItem({ todoItem }: propsData) {
-  const [data, setData] = useState<Itodo[]>();
-  const TodoData = useSelector((state: RootState) => state.todoState);
-  useEffect(() => {
-    setData(TodoData);
-  }, [TodoData]);
-
+function TodoItem({ todoItem, removeTodo, toggleTodo }: propsData) {
   return (
     <TodoItemDiv>
       <ConetentsDiv>
-        {todoItem.isToggle ? <Check /> : <Check style={{ opacity: '0.1' }} />}
+        {todoItem.isToggle ? (
+          <Check onClick={toggleTodo} />
+        ) : (
+          <Check onClick={toggleTodo} style={{ opacity: '0.1' }} />
+        )}
       </ConetentsDiv>
       <ConetentsDiv>{todoItem.todo}</ConetentsDiv>
       <ConetentsDiv>
-        <Garbage />
+        <Garbage onClick={removeTodo} />
       </ConetentsDiv>
     </TodoItemDiv>
   );

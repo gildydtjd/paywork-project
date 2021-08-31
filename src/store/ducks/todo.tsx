@@ -6,8 +6,8 @@ export const addTodo = (todo: string, count: number) => ({
   type: ADD_TODO,
   todo: {
     todo: todo,
-    isToggle: false,
-    id: count
+    id: count,
+    isToggle: false
   }
 });
 
