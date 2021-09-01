@@ -2,11 +2,15 @@ import { Itodo } from 'store/ducks/todo';
 import styled from 'styled-components';
 
 const TodoItemDiv = styled.div`
-  padding: 5px 5px;
+  padding: 20px 5px;
   border: 1px solid #c9c9c9;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 50%;
+  margin: 30px 25%;
 `;
 
 const Check = styled.div`
@@ -47,7 +51,9 @@ function TodoItem({ todoItem, removeTodo, toggleTodo }: propsData) {
           <Check onClick={toggleTodo} style={{ opacity: '0.1' }} />
         )}
       </ConetentsDiv>
-      <ConetentsDiv>{todoItem.todo}</ConetentsDiv>
+      <ConetentsDiv>
+        <h2>{todoItem.todo}</h2>
+      </ConetentsDiv>
       <ConetentsDiv>
         <Garbage onClick={removeTodo} />
       </ConetentsDiv>

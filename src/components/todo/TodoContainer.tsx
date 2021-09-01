@@ -7,8 +7,15 @@ import TodoItem from './TodoItem';
 
 const TodoContainerDiv = styled.div`
   height: 100vh;
+  background-image: url('/assets/img/sky.jpg');
+  background-position: center;
 `;
 
+const TaskCountDiv = styled.div`
+  text-align: center;
+  padding: 20px;
+  color: #ffffff;
+`;
 function TodoContainer() {
   const [todoData, setTodoData] = useState<Itodo[]>([]);
   const TodoList = useSelector((state: RootState) => state.todoState);
@@ -30,15 +37,12 @@ function TodoContainer() {
     );
   });
 
-  return <TodoContainerDiv>{todoRender}</TodoContainerDiv>;
+  return (
+    <TodoContainerDiv>
+      <TaskCountDiv>{todoData.length}개의 Task가 등록되었습니다.</TaskCountDiv>
+      {todoRender}
+    </TodoContainerDiv>
+  );
 }
 
 export default TodoContainer;
-
-// {todoData.map((todo) => {
-//   <TodoItem
-//     todoItem={todo}
-//     removeTodo={() => removeTodo(todo.id)}
-//     toggleTodo={() => toggleTodo(todo.id)}
-//   />;
-// })}

@@ -5,10 +5,11 @@ import styled from 'styled-components';
 
 const InputDiv = styled.div`
   display: flex;
-  padding: 20px;
+  padding: 30px;
   justify-content: center;
   align-items: center;
-  background-color: #c9c9c9;
+  background-image: url('/assets/img/sky.jpg');
+  background-position: center;
 `;
 function TodoInput() {
   const [input, setInput] = useState<string>('');
@@ -28,11 +29,13 @@ function TodoInput() {
     <InputDiv>
       <input
         type="text"
-        placeholder="리스트를 작성해주세요!"
+        placeholder="Task를 작성해주세요!"
         onChange={handleInput}
         value={input}
       ></input>
-      <button onClick={handleAddTodo}>저장</button>
+      <button onClick={handleAddTodo} style={{ marginLeft: '5px' }}>
+        등록
+      </button>
     </InputDiv>
   );
 }
